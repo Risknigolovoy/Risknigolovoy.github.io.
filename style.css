@@ -1,0 +1,43 @@
+
+body, html {
+  margin: 0; padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: white;
+  background-color: black;
+}
+.scene {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.overlay {
+  position: relative;
+  z-index: 2;
+  padding: 40px;
+  text-align: center;
+}
+input {
+  padding: 10px;
+  font-size: 16px;
+  width: 80%;
+}
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #6633cc;
+  border: none;
+  color: white;
+  margin-top: 15px;
+}
+a {
+  color: #FFD700;
+  font-weight: bold;
+  font-size: 18px;
+}
