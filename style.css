@@ -47,7 +47,8 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* Стили для кота */
+/* --- СТИЛИ ДЛЯ КОТА (ОБНОВЛЕНО) --- */
+
 #cat-container {
     position: fixed;
     bottom: 10vh;
@@ -57,31 +58,33 @@ h1 {
     animation: walk-across 20s linear infinite;
 }
 
+/* Обновленный блок для вертикальной анимации */
 #cat-sprite {
-    width: 128px; /* Ширина одного кадра */
-    height: 128px; /* Высота спрайта */
+    width: 185px;  /* Ширина одного кадра (кота) */
+    height: 95px;  /* Высота одного кадра (кота) */
     background: url('cat-sprite.png') no-repeat;
-    background-size: cover;
-    animation: walk-animation 0.8s steps(4) infinite; /* 4 кадра в спрайте */
-    transform: scaleX(-1); /* Поворачиваем кота, если он смотрит не в ту сторону */
+    animation: walk-animation 1s steps(10) infinite; /* 10 кадров в столбике */
 }
 
-/* Анимация ходьбы (смена кадров) */
+/* Обновленный блок для вертикальной анимации */
 @keyframes walk-animation {
     from { background-position: 0 0; }
-    to { background-position: -512px 0; } /* 128px * 4 кадра */
+    to { background-position: 0 -950px; } /* Сдвиг по вертикали (95px * 10 кадров) */
 }
 
 /* Анимация движения по экрану */
 @keyframes walk-across {
-    0% { transform: translateX(-150px); }
+    0% { transform: translateX(-190px); } /* Чуть больше ширины кота */
     100% { transform: translateX(100vw); }
 }
+
+/* --- КОНЕЦ ОБНОВЛЕННОГО БЛОКА --- */
+
 
 /* Стили для облачка с речью */
 #speech-bubble {
     position: absolute;
-    bottom: 130px; /* Над котом */
+    bottom: 100px; /* Над котом */
     left: 30px;
     background: white;
     color: black;
@@ -91,6 +94,7 @@ h1 {
     font-size: 1.1em;
     opacity: 0;
     transition: opacity 0.5s;
+    min-width: 150px;
 }
 
 #speech-bubble.hidden {
