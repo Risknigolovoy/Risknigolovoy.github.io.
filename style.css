@@ -13,7 +13,7 @@ body {
     margin: 0;
     font-family: 'Georgia', serif;
     transition: background-color var(--transition-speed), color var(--transition-speed);
-    overflow-x: hidden;
+    overflow-x: hidden; 
 }
 
 body.day {
@@ -47,7 +47,7 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* --- ФИНАЛЬНЫЙ БЛОК ДЛЯ КОТА --- */
+/* --- ФИНАЛЬНЫЙ БЛОК ДЛЯ КОТА (ПОД ВАШ ФАЙЛ) --- */
 
 #cat-container {
     position: fixed;
@@ -59,18 +59,19 @@ h1 {
 }
 
 #cat-sprite {
-    width: 128px;
-    height: 128px;
-    /* ИЗМЕНЕНО: Ссылка на новое, чистое имя файла */
+    width: 130px;  /* Ширина одного кадра вашего кота */
+    height: 130px; /* Высота одного кадра вашего кота */
     background: url('mycat.PNG') no-repeat;
-    /* ВОЗВРАЩЕНА: Анимация кадров */
     animation: walk-animation 1.2s steps(12) infinite;
+    
+    /* ВОТ МАГИЯ: Это свойство смешивает картинку с фоном, убирая светлые клетки */
+    mix-blend-mode: darken; 
 }
 
-/* ВОЗВРАЩЕНА: Анимация "переключения" кадров */
+/* Анимация "переключения" кадров (для вертикального спрайта) */
 @keyframes walk-animation {
     from { background-position: 0 0; }
-    to { background-position: 0 -1536px; }
+    to { background-position: 0 -1560px; } /* 130px * 12 кадров */
 }
 
 /* Анимация движения Справа Налево */
