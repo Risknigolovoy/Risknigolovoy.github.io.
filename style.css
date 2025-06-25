@@ -47,7 +47,7 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* --- ФИНАЛЬНЫЙ БЛОК ДЛЯ КОТА (С ВАШИМИ ТОЧНЫМИ РАЗМЕРАМИ) --- */
+/* --- ФИНАЛЬНЫЙ БЛОК ДЛЯ КОТА (СО СДВИГОМ АНИМАЦИИ) --- */
 
 #cat-container {
     position: fixed;
@@ -59,31 +59,29 @@ h1 {
 }
 
 #cat-sprite {
-    /* ИЗМЕНЕНО: Ваши точные размеры одного кадра */
     width: 342px;
     height: 179px;
-    
     background: url('mycat.PNG') no-repeat;
-    animation: walk-animation 1.2s steps(12) infinite; /* 12 кадров */
-    
-    /* ОСТАВЛЕНО: Этот режим убирает клетчатый фон */
+    animation: walk-animation 1.2s steps(12) infinite;
     mix-blend-mode: multiply; 
 }
 
-/* Анимация "переключения" кадров (с вашими точными размерами) */
+/* ИЗМЕНЕНО: Анимация "переключения" кадров СО СДВИГОМ */
 @keyframes walk-animation {
-    from { background-position: 0 0; }
-    /* ИЗМЕНЕНО: Используем полную высоту картинки */
-    to { background-position: 0 -2390px; } 
+    /* Начинаем с 5-го столбика (сдвиг на 4 вправо) */
+    /* 342px (ширина кадра) * 4 = 1368px */
+    from { background-position: -1368px 0; }
+    
+    /* Заканчиваем там же, но внизу */
+    to { background-position: -1368px -2390px; } 
 }
 
-/* Анимация движения Справа Налево (с вашей точной шириной) */
+/* Анимация движения Справа Налево */
 @keyframes walk-from-right-to-left {
     0% {
         transform: translateX(100vw);
     }
     100% {
-        /* ИЗМЕНЕНО: кот уходит за экран на свою точную ширину */
         transform: translateX(-342px);
     }
 }
@@ -94,8 +92,8 @@ h1 {
 /* Стили для облачка с речью */
 #speech-bubble {
     position: absolute;
-    bottom: 180px; /* Подняли выше из-за размера кота */
-    left: 50px;  /* Сдвинули для лучшего вида */
+    bottom: 180px;
+    left: 50px;
     background: white;
     color: black;
     padding: 10px 15px;
