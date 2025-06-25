@@ -35,11 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
         speechBubble.classList.remove('hidden');
         speechBubble.classList.add('visible');
 
-        // Скрываем облачко через 4 секунды
+        // Скрываем облачко через 7 секунд
         setTimeout(() => {
             speechBubble.classList.remove('visible');
             speechBubble.classList.add('hidden');
-        }, 4000);
+        }, 7000); // Увеличенное время
     }
 
     // Запускаем речь кота каждые 10-20 секунд
