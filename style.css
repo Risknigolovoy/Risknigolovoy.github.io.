@@ -1,34 +1,10 @@
-/* Основные стили и переменные */
-:root {
-    --bg-day: #87CEEB;
-    --text-day: #000000;
-    --bg-night: #0c0c2c;
-    --text-night: #FFFFFF;
-    --bg-sunset: #FFA07A;
-    --text-sunset: #FFFFFF;
-    --transition-speed: 1.5s;
-}
+/* ТЕСТОВЫЙ КОД */
 
 body {
     margin: 0;
     font-family: 'Georgia', serif;
-    transition: background-color var(--transition-speed), color var(--transition-speed);
-    overflow-x: hidden; /* Предотвращает горизонтальную прокрутку */
-}
-
-body.day {
-    background-color: var(--bg-day);
-    color: var(--text-day);
-}
-
-body.sunset {
-    background-color: var(--bg-sunset);
-    color: var(--text-sunset);
-}
-
-body.night {
-    background-color: var(--bg-night);
-    color: var(--text-night);
+    background-color: #87CEEB; /* Только дневная тема для простоты теста */
+    overflow-x: hidden;
 }
 
 .fullscreen {
@@ -47,7 +23,7 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* --- СТИЛИ ДЛЯ КОТА --- */
+/* --- ТЕСТОВЫЙ БЛОК ДЛЯ КОТА --- */
 
 #cat-container {
     position: fixed;
@@ -61,14 +37,8 @@ h1 {
 #cat-sprite {
     width: 128px;
     height: 128px;
-    background: url('cat-sprite.PNG') no-repeat; /* ИЗМЕНЕНО: Расширение .PNG большими буквами */
-    animation: walk-animation 1.2s steps(12) infinite;
-}
-
-/* Анимация "переключения" кадров (для вертикального спрайта) */
-@keyframes walk-animation {
-    from { background-position: 0 0; }
-    to { background-position: 0 -1536px; } /* 128px * 12 кадров */
+    /* Вместо картинки мы используем просто красный цвет */
+    background-color: red; 
 }
 
 /* Анимация движения Справа Налево */
@@ -79,45 +49,4 @@ h1 {
     100% {
         transform: translateX(-130px);
     }
-}
-
-/* --- КОНЕЦ БЛОКА ДЛЯ КОТА --- */
-
-
-/* Стили для облачка с речью */
-#speech-bubble {
-    position: absolute;
-    bottom: 110px;
-    left: -20px;
-    background: white;
-    color: black;
-    padding: 10px 15px;
-    border-radius: 15px;
-    border: 2px solid black;
-    font-size: 1.1em;
-    opacity: 0;
-    transition: opacity 0.5s;
-    min-width: 150px;
-}
-
-#speech-bubble.hidden {
-    display: none;
-}
-#speech-bubble.visible {
-    opacity: 1;
-}
-
-/* Кнопка музыки */
-#mute-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.5em;
-    z-index: 101;
 }
