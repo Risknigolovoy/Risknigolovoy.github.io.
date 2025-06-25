@@ -47,7 +47,7 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* --- СТИЛИ ДЛЯ КОТА (ПОД 12-КАДРОВЫЙ ВЕРТИКАЛЬНЫЙ СПРАЙТ) --- */
+/* --- СТИЛИ ДЛЯ КОТА --- */
 
 #cat-container {
     position: fixed;
@@ -61,7 +61,7 @@ h1 {
 #cat-sprite {
     width: 128px;
     height: 128px;
-    background: url('cat-sprite.png') no-repeat;
+    background: url('cat-sprite.PNG') no-repeat; /* ИЗМЕНЕНО: Расширение .PNG большими буквами */
     animation: walk-animation 1.2s steps(12) infinite;
 }
 
