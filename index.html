@@ -3,216 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кот, Созданный Кодом</title>
+    <title>Тест Кота</title>
     <style>
-        /* CSS без изменений */
-        :root {
-            --bg-day: #87CEEB;
-            --text-day: #000000;
-            --bg-night: #0c0c2c;
-            --text-night: #FFFFFF;
-            --bg-sunset: #FFA07A;
-            --text-sunset: #FFFFFF;
-            --transition-speed: 1.5s;
-        }
-
         body {
-            margin: 0;
-            font-family: 'Georgia', serif;
-            transition: background-color var(--transition-speed), color var(--transition-speed);
-            overflow-x: hidden; 
-        }
-
-        body.day {
-            background-color: var(--bg-day);
-            color: var(--text-day);
-        }
-
-        body.sunset {
-            background-color: var(--bg-sunset);
-            color: var(--text-sunset);
-        }
-
-        body.night {
-            background-color: var(--bg-night);
-            color: var(--text-night);
-        }
-
-        .fullscreen {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        h1 {
-            font-size: 4em;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        #cat-container {
-            position: fixed;
-            bottom: 10vh;
-            left: 0;
-            width: 100%;
-            z-index: 100;
-            animation: walk-from-right-to-left 22s linear infinite;
+            background-color: #87CEEB; /* Простой синий фон */
         }
 
         #cat-sprite {
+            position: fixed; /* Ставим кота по центру для теста */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scaleX(-1); /* Центрируем и разворачиваем влево */
             width: 128px;
             height: 128px;
+            /* Встроенная картинка кота */
             background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAAAAACACAYAAADL6HrPAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAgY0hSTQAAeiYAAICEAAD6AAAAgOgAAHUwAADqYAAAOpgAABdwnLpRPAAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAAASAAAAEgARslrZwAAAdV6VFh0UmF3IHByb2ZpbGUgdHlwZSBpcHRjAAB4nOPyDAzQUVHIyqnIT8/KzMvMyeVwLw7p4pADf8sAg8MAiR5i/8GAn38Qc2a4f4GAg98PIc2Z4X4GBj8+I5k+MP8bgw8TIyMj4wMDIxMjA8OQ5k/x/w9wZkdiAyDTMyMjw9nBwMDIzsDAkKc5f4/ADY9PTM6+H8DA/8zA5C/zMDIwMzA5D/GUCg4H/A/D9AXE+4P4H4PyA1xP4/wPx/gPkD4gMgbgfiWwL4v0F8F4v8csmB+wOIf4A4F8v8ZyA5A/FDED8G8b8F5L8F5v+Zgfgfg/g/I/kPyf4vyA5D/A/E/BfE/I/mvy/kvwfmfAPgfQf0fQ/4fUv0vQ/4vQP4vVf4vovwvl/4v0P0Pgf4fUP8vVf0vQ/4fQP8vgP4fSf6vqP0vUP8vYP8vMP+P6P8v0v8voP8vgP4fSP4vqf0vQf8vgP8vYf8vIf+P6f8v0f8vof8vgf4fCf4vq/0vQf8vIP8vYv8vEf+P6v8v0f8vof8vAf8vAf8vIf+vAf+vQf8vY/8vE/8vM/8vAf//AwBjd3wJg2uWnQAAQABJREFUeNrt/Xe4XVV15//s/Wcdae211l57rd/r9XbWWntaO9auQ+AQAiGEAAEEJAICgoIICuIuiKK4g4CAyAABUBAQEBERBHFAEcVdFAUFVxAEUdyAEBKIA0Kwc9be6/d+v+/s/eNnZ+csM2vNGjNGkkwyySTf5+eZnfeZ3zvvfM/v5/s++7o+zH3ci73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi73Yi7_') no-repeat;
             animation: walk-animation 0.8s steps(8) infinite;
-            transform: scaleX(-1);
         }
 
         @keyframes walk-animation {
             from { background-position: 0 0; }
             to { background-position: -1024px 0; }
         }
-
-        @keyframes walk-from-right-to-left {
-            0% { transform: translateX(100vw); }
-            100% { transform: translateX(-352px); }
-        }
-
-        #speech-bubble {
-            position: absolute;
-            bottom: 180px;
-            left: 50px;
-            background: white;
-            color: black;
-            padding: 10px 15px;
-            border-radius: 15px;
-            border: 2px solid black;
-            font-size: 1.1em;
-            opacity: 0;
-            transition: opacity 0.5s;
-            min-width: 150px;
-            transform: scaleX(-1);
-        }
-        
-        #speech-bubble.hidden {
-            display: none;
-        }
-        #speech-bubble.visible {
-            opacity: 1;
-        }
-
-        #mute-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5em;
-            z-index: 101;
-            /* Для лучшего вида на мобильных */
-            width: 50px;
-            height: 50px;
-            line-height: 50px;
-            text-align: center;
-        }
     </style>
 </head>
 <body>
-    <section id="day-section" class="fullscreen">
-        <h1>Рассвет</h1>
-        <p>Прокрутите вниз, чтобы увидеть, как проходит день кота.</p>
-    </section>
-
-    <section id="sunset-section" class="fullscreen">
-        <h1>Закат</h1>
-        <p>Солнце садится, и тени становятся длиннее.</p>
-    </section>
-
-    <section id="night-section" class="fullscreen">
-        <h1>Ночь</h1>
-        <p>Настало время тайн и приключений.</p>
-    </section>
-
-    <audio id="background-music" src="https://www.bensound.com/bensound-music/bensound-thejazzpiano.mp3" loop></audio>
-    <button id="mute-button">🔇</button>
-
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const body = document.body;
-
-            // Создаем кота
-            const catContainer = document.createElement('div');
-            catContainer.id = 'cat-container';
+            // Скрипт просто создает один элемент кота и добавляет на страницу
             const catSprite = document.createElement('div');
             catSprite.id = 'cat-sprite';
-            const speechBubble = document.createElement('div');
-            speechBubble.id = 'speech-bubble';
-            speechBubble.classList.add('hidden');
-            catContainer.appendChild(catSprite);
-            catContainer.appendChild(speechBubble);
-            body.appendChild(catContainer);
-
-            const music = document.getElementById('background-music');
-            const muteButton = document.getElementById('mute-button');
-            
-            const catPhrases = [
-                "Хочу кушать...", "Окак...", "Веришь, нет? Я забыл, когда в последний раз ел.", "Мяу?", "Интересно, что там, за горизонтом?",
-            ];
-
-            // Логика смены дня и ночи
-            window.addEventListener('scroll', () => {
-                const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
-                if (scrollPercent < 0.4) {
-                    body.className = 'day';
-                } else if (scrollPercent >= 0.4 && scrollPercent < 0.8) {
-                    body.className = 'sunset';
-                } else {
-                    body.className = 'night';
-                }
-            });
-
-            // Логика для говорящего кота
-            function catSpeaks() {
-                const phrase = catPhrases[Math.floor(Math.random() * catPhrases.length)];
-                speechBubble.textContent = phrase;
-                speechBubble.classList.remove('hidden');
-                speechBubble.classList.add('visible');
-                setTimeout(() => {
-                    speechBubble.classList.remove('visible');
-                    speechBubble.classList.add('hidden');
-                }, 7000);
-            }
-            setInterval(catSpeaks, 10000 + Math.random() * 10000);
-
-            // --- ОБНОВЛЕННАЯ ЛОГИКА УПРАВЛЕНИЯ МУЗЫКОЙ ---
-            let musicPlayed = false;
-            muteButton.addEventListener('click', () => {
-                if (music.paused) {
-                    music.play();
-                    muteButton.textContent = '🔊'; // Меняем значок на "звук включен"
-                    musicPlayed = true;
-                } else {
-                    music.pause();
-                    muteButton.textContent = '🔇'; // Меняем значок на "звук выключен"
-                }
-            });
-            
-            // Автовоспроизведение при первом действии пользователя
-            document.body.addEventListener('click', () => {
-                if (!musicPlayed) {
-                    music.play();
-                    muteButton.textContent = '🔊'; // Меняем значок на "звук включен"
-                    musicPlayed = true;
-                }
-            }, { once: true });
-            // --- КОНЕЦ ОБНОВЛЕННОГО БЛОКА ---
+            document.body.appendChild(catSprite);
         });
     </script>
 </body>
