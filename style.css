@@ -47,7 +47,7 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* --- ФИНАЛЬНЫЙ БЛОК ДЛЯ КОТА (СО СДВИГОМ АНИМАЦИИ) --- */
+/* --- ФИНАЛЬНЫЙ БЛОК ДЛЯ КОТА (С НОВОЙ ШИРИНОЙ) --- */
 
 #cat-container {
     position: fixed;
@@ -59,30 +59,31 @@ h1 {
 }
 
 #cat-sprite {
-    width: 342px;
+    /* ИЗМЕНЕНО: Новая ширина кадра */
+    width: 352px;
     height: 179px;
     background: url('mycat.PNG') no-repeat;
     animation: walk-animation 1.2s steps(12) infinite;
     mix-blend-mode: multiply; 
 }
 
-/* ИЗМЕНЕНО: Анимация "переключения" кадров СО СДВИГОМ */
+/* ИЗМЕНЕНО: Анимация "переключения" кадров СО СДВИГОМ и новой шириной */
 @keyframes walk-animation {
     /* Начинаем с 5-го столбика (сдвиг на 4 вправо) */
-    /* 342px (ширина кадра) * 4 = 1368px */
-    from { background-position: -1368px 0; }
+    /* 352px (новая ширина) * 4 = 1408px */
+    from { background-position: -1408px 0; }
     
     /* Заканчиваем там же, но внизу */
-    to { background-position: -1368px -2390px; } 
+    to { background-position: -1408px -2390px; } 
 }
 
-/* Анимация движения Справа Налево */
+/* ИЗМЕНЕНО: Анимация движения Справа Налево с новой шириной */
 @keyframes walk-from-right-to-left {
     0% {
         transform: translateX(100vw);
     }
     100% {
-        transform: translateX(-342px);
+        transform: translateX(-352px);
     }
 }
 
