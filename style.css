@@ -47,7 +47,7 @@ h1 {
     text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
 }
 
-/* --- СТИЛИ ДЛЯ КОТА (ОБНОВЛЕНО) --- */
+/* --- СТИЛИ ДЛЯ КОТА --- */
 
 #cat-container {
     position: fixed;
@@ -58,33 +58,30 @@ h1 {
     animation: walk-across 20s linear infinite;
 }
 
-/* Обновленный блок для вертикальной анимации */
 #cat-sprite {
-    width: 185px;  /* Ширина одного кадра (кота) */
-    height: 95px;  /* Высота одного кадра (кота) */
-    background: url('cat-sprite.png') no-repeat;
-    animation: walk-animation 1s steps(10) infinite; /* 10 кадров в столбике */
+    width: 185px;
+    height: 95px;
+    background: url('cat-sprite.PNG') no-repeat; /* ИЗМЕНЕНО: Расширение файла .PNG с большой буквы */
+    animation: walk-animation 1s steps(10) infinite;
 }
 
-/* Обновленный блок для вертикальной анимации */
 @keyframes walk-animation {
     from { background-position: 0 0; }
-    to { background-position: 0 -950px; } /* Сдвиг по вертикали (95px * 10 кадров) */
+    to { background-position: 0 -950px; }
 }
 
-/* Анимация движения по экрану */
 @keyframes walk-across {
-    0% { transform: translateX(-190px); } /* Чуть больше ширины кота */
+    0% { transform: translateX(-190px); }
     100% { transform: translateX(100vw); }
 }
 
-/* --- КОНЕЦ ОБНОВЛЕННОГО БЛОКА --- */
+/* --- КОНЕЦ БЛОКА ДЛЯ КОТА --- */
 
 
 /* Стили для облачка с речью */
 #speech-bubble {
     position: absolute;
-    bottom: 100px; /* Над котом */
+    bottom: 100px;
     left: 30px;
     background: white;
     color: black;
